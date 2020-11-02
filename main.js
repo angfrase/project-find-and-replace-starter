@@ -1,6 +1,6 @@
 // You should NOT change the HTML or CSS in this project (at least until you reach
 // the bonus objectives). Focus on the JavaScript.
-
+console.log ("hello")
 const findInput = document.querySelector(".find-input")
 const replaceInput = document.querySelector(".replace-input")
 const replaceAllButton = document.querySelector(".replace-all-button")
@@ -20,9 +20,44 @@ function getCellElements (currentRowElement) {
 }
 
 
-// YOUR CODE GOES HERE
+// YOUR CODE GOES HERE 
+
+replaceAllButton.addEventListener("click", function(){
+    // console.log(".replace-all-button")
+
+    let search= findInput.value
+    let replace = replaceInput.value
+
+    for(let i=0;i<rowElements.length;i++){
+        let cellElements=getCellElements(rowElements[i])
+        // console.log(cellElements);
+
+       for(let j=0;j<cellElements.length;j++) {
+           let cellText=cellElements[j].innerHTML;
+        //    console.log(cellText)
+            if(cellText.includes(search) ) {
+            // console.log("search text")
+            cellText=cellText.replace(search,replace);
+            console.log( replace )
+            }
+        }
+    }
+})
 
 
+// function filteredArray(arr, elem) {
+//     var newArr = [];
+//     // change code below this line
+//     newArr = [...arr];
+//     for (var i = 0; i < arr.length; i++){
+//       for(var x = 0; x < arr[i].length; x++){
+//         if (elem === newArr[i][x]){
+//           newArr[i] = [];
+//         }
+//       }
+//     }
+//     return newArr.filter(function(i){ return i.length > 0 });
+//   }
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
 // And when you change the value you are assigning to a variable, don't
